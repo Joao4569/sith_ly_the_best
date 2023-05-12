@@ -9,12 +9,32 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  width: fit-content;
+  padding: 1rem;
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  cursor: pointer;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   align-items: center;
   height: fit-content;

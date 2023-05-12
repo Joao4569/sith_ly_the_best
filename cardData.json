@@ -9,6 +9,14 @@
   { "name": "Luke SkyWalker", "data": "luke", "image": "luke.jpg" },
   { "name": "Obi Wan Kenobi", "data": "obi-wan", "image": "obi-wan.jpg" },
   { "name": "Obi Wan Kenobi", "data": "obi-wan", "image": "obi-wan.jpg" },
-  { "name": "Qui Gon Jinn", "data": "qui-gon", "image": "qui-gon.jpg" },
-  { "name": "Qui Gon Jinn", "data": "qui-gon", "image": "qui-gon.jpg" }
+  { "name": "Mace Windu", "data": "mace-windu", "image": "mace-windu.jpg" },
+  { "name": "Mace Windu", "data": "mace-windu", "image": "mace-windu.jpg" },
+  { "name": "Boba Fett", "data": "boba-fett", "image": "boba-fett.jpg" },
+  { "name": "Boba Fett", "data": "boba-fett", "image": "boba-fett.jpg" },
+  { "name": "Han Solo", "data": "han-solo", "image": "han-solo.jpg" },
+  { "name": "Han Solo", "data": "han-solo", "image": "han-solo.jpg" },
+  { "name": "R2 D2", "data": "r2d2", "image": "r2d2.jpg" },
+  { "name": "R2 D2", "data": "r2d2", "image": "r2d2.jpg" },
+  { "name": "C3PO", "data": "c3po", "image": "c3po.jpg" },
+  { "name": "C3PO", "data": "c3po", "image": "c3po.jpg" }
 ]

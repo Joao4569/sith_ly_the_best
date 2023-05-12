@@ -1,6 +1,8 @@
 import cardData from "./cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
+const easyMode = document.getElementById("easy");
+const mediumMode = document.getElementById("medium");
 
 let clicks = 0;
 let choiceOne = "";
@@ -18,10 +20,20 @@ function shuffleArray(array) {
   return array;
 }
 
-function init() {
-  const cardArray = shuffleArray(cardData);
+function init(mode) {
+  easyMode.remove();
+  mediumMode.remove();
+  let cardArray = cardData;
+  let newArr = [...cardArray];
 
-  cardArray.forEach((card) => {
+  if (mode === "easy") {
+    newArr = cardArray.slice(0, 12);
+    wrapper.style.gridTemplateColumns = `repeat(4, 1fr)`;
+  }
+
+  const shuffledCards = shuffleArray(newArr);
+
+  shuffledCards.forEach((card) => {
     const element = document.createElement("div");
 
     element.classList.add("flip-card");
@@ -97,4 +109,5 @@ async function flipCard(e) {
   const { name } = element.dataset;
 }
 
-init();
+easyMode.addEventListener("click", () => init("easy"));
+mediumMode.addEventListener("click", () => init("medium"));
