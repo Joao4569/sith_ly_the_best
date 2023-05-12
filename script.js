@@ -8,8 +8,9 @@ const hardMode = document.getElementById("hard");
 let clicks = 0;
 let choiceOne = "";
 let choiceTwo = "";
+let timerActive = false;
 
-function shuffleArray(array) {
+export function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
 
@@ -76,14 +77,19 @@ function init(mode) {
 
 function gameTimer(delay) {
   return new Promise((resolve) => {
+    timerActive = true;
     setTimeout(() => {
       resolve();
+      timerActive = false;
     }, delay);
   });
 }
 
 async function flipCard(e) {
   const element = e.target.closest(".flip-card-inner");
+
+  if (timerActive) return;
+  if (element.classList.contains("isFlipped")) return;
   element.classList.toggle("isFlipped");
 
   if (clicks === 0) {
