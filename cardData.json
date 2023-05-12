@@ -1,0 +1,14 @@
+[
+  { "name": "Darth Maul", "data": "maul", "image": "maul.jpg" },
+  { "name": "Darth Maul", "data": "maul", "image": "maul.jpg" },
+  { "name": "Darth Sidious", "data": "sidious", "image": "sidious.jpg" },
+  { "name": "Darth Sidious", "data": "sidious", "image": "sidious.jpg" },
+  { "name": "Darth Vader", "data": "vader", "image": "vader.jpg" },
+  { "name": "Darth Vader", "data": "vader", "image": "vader.jpg" },
+  { "name": "Luke SkyWalker", "data": "luke", "image": "luke.jpg" },
+  { "name": "Luke SkyWalker", "data": "luke", "image": "luke.jpg" },
+  { "name": "Obi Wan Kenobi", "data": "obi-wan", "image": "obi-wan.jpg" },
+  { "name": "Obi Wan Kenobi", "data": "obi-wan", "image": "obi-wan.jpg" },
+  { "name": "Qui Gon Jinn", "data": "qui-gon", "image": "qui-gon.jpg" },
+  { "name": "Qui Gon Jinn", "data": "qui-gon", "image": "qui-gon.jpg" }
+]
