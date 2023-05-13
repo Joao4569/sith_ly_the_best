@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sample Card{% endblock %}
+{% block content %}
+<div class="btn-container">
+  <button id="easy" class="btn">Easy</button>
+  <button id="medium" class="btn">Medium</button>
+  <button id="hard" class="btn">Hard</button>
+</div>
+
+<div id="wrapper" class="wrapper"></div>
+{% endblock %}
+
+
+{% block postloadjs %}
+{% endblock %}
