@@ -34,7 +34,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Added heroku app to allowed hosts - Johnny
+ALLOWED_HOSTS = ["sith-ly-the-best.herokuapp.com", "localhost"]
 
 
 # Application definition
