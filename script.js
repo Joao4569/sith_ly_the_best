@@ -1,6 +1,7 @@
 import cardData from "./cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
+const container = document.getElementById("container");
 const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
@@ -123,14 +124,17 @@ async function flipCard(e) {
 }
 
 easyMode.addEventListener("click", () => {
+    container.classList.add("hidden");
     wrapper.classList.remove("hidden");
     init("easy");
 });
 mediumMode.addEventListener("click", () => {
+    container.classList.add("hidden");
     wrapper.classList.remove("hidden");
     init("medium");
 });
 hardMode.addEventListener("click", () => {
+    container.classList.add("hidden");
     wrapper.classList.remove("hidden");
     init("hard");
 });
