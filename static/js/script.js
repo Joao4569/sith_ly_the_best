@@ -1,4 +1,4 @@
-import cardData from "./cardData.json" assert { type: "json" };
+import cardData from "../cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
 const easyMode = document.getElementById("easy");

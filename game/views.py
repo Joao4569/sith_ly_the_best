@@ -6,5 +6,11 @@ from django.shortcuts import render
 
 def game_view(request):
     # just returning a simple response for now
-    return HttpResponse("This is the game page")
-    # return render(request, 'game/game.html')
+    # return HttpResponse("This is the game page")
+    return render(request, 'game/game.html')
+
+
+def homepage(request):
+    # just returning a simple response for now
+    # return HttpResponse("This is the home page")
+    return render(request, 'game/homepage.html')
