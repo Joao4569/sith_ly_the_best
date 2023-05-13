@@ -122,6 +122,15 @@ async function flipCard(e) {
   const { name } = element.dataset;
 }
 
-easyMode.addEventListener("click", () => init("easy"));
-mediumMode.addEventListener("click", () => init("medium"));
-hardMode.addEventListener("click", () => init("hard"));
+easyMode.addEventListener("click", () => {
+    wrapper.classList.remove("hidden");
+    init("easy");
+});
+mediumMode.addEventListener("click", () => {
+    wrapper.classList.remove("hidden");
+    init("medium");
+});
+hardMode.addEventListener("click", () => {
+    wrapper.classList.remove("hidden");
+    init("hard");
+});
