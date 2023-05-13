@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block meta %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+
+    
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>{% block title %}Default Title{% endblock %}</title>
+    
+</head>
+
+<body>
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+
+    
+    {% block corejs %}
+    <script src="{% static 'js/script.js' %}" type="module"></script>
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
+</body>
+
+</html>
