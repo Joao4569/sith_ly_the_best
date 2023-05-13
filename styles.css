@@ -48,6 +48,10 @@ body {
     border: 7px solid rgba(242,208,34,0.9);
 }
 
+.hidden {
+    display: none;
+}
+
 .flip-card {
     position: relative;
     color: rgb(27, 27, 27);
