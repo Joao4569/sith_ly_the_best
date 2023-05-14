@@ -3,15 +3,23 @@
 
 {% block title %}Sample Card{% endblock %}
 {% block content %}
+<div class="hidden" id="wrapper"></div>
+
 <div class="btn-container">
   <button id="easy" class="btn">Easy</button>
   <button id="medium" class="btn">Medium</button>
   <button id="hard" class="btn">Hard</button>
 </div>
 
-<div id="wrapper" class="wrapper"></div>
+<form id="endGameForm" method="post" action="{% url 'save_score' %}">
+  {% csrf_token %}
+  <input type="hidden" id="timeSpent" name="timeSpent">
+  <input type="hidden" id="moves" name="moves">
+  <button type="submit" style="display:none">Submit</button>
+</form>
+
 {% endblock %}
-
-
 {% block postloadjs %}
+<script src="{% static 'data/cardData.json' %}"></script>
+<script src="{% static 'js/game.js' %}" type="module"></script>
 {% endblock %}
