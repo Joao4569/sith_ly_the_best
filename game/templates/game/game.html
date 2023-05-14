@@ -3,7 +3,8 @@
 
 {% block title %}Sample Card{% endblock %}
 {% block content %}
-<div class="hidden" id="wrapper"></div>
+
+
 
 <div class="btn-container">
   <button id="easy" class="btn">Easy</button>
@@ -11,10 +12,21 @@
   <button id="hard" class="btn">Hard</button>
 </div>
 
+<div id="wrapper" class="wrapper"></div>
+
+<div>
+  <span>Total Clicks: </span>
+  <span id="totalClicks">0</span>
+</div>
+<div>
+  <span>Total Time: </span>
+  <span id="totalTime">0</span>
+</div>
+
 <form id="endGameForm" method="post" action="{% url 'save_score' %}">
   {% csrf_token %}
   <input type="hidden" id="timeSpent" name="timeSpent">
-  <input type="hidden" id="moves" name="moves">
+  <input type="hidden" id="clicks" name="clicks">
   <input type="hidden" id="gameMode" name="gameMode">
   <button type="submit" style="display:none">Submit</button>
 </form>

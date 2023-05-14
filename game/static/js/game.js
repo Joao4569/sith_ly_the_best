@@ -1,17 +1,6 @@
-let cardData;
-
-fetch('/static/data/cardData.json')
-  .then(response => response.json())
-  .then(data => {
-    cardData = data;
-    console.log('Card data:', cardData); // Debug: Log cardData to console
-  })
-  .catch(error => console.error('Error fetching card data:', error));
-
-// import cardData from "../cardData.json" assert { type: "json" };
+import cardData from "/static/data/cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
-const container = document.getElementById("container");
 const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
@@ -34,7 +23,6 @@ export function shuffleArray(array) {
 }
 
 function init(mode) {
-  console.log('Initializing game with mode:', mode); // Debug: Log game mode to console
   easyMode.remove();
   mediumMode.remove();
   hardMode.remove();
@@ -50,8 +38,6 @@ function init(mode) {
     newArr = cardArray.slice(0, 20);
     wrapper.style.gridTemplateColumns = `repeat(5, 1fr)`;
   }
-
-  console.log('New card array:', newArr); // Debug: Log new card array to console
 
   const shuffledCards = shuffleArray(newArr);
 
@@ -99,15 +85,6 @@ function gameTimer(delay) {
   });
 }
 
-function endGame(timeSpent, moves) {
-  // Update the form's input fields with the game results
-  document.getElementById('timeSpent').value = timeSpent;
-  document.getElementById('moves').value = moves;
-
-  // Submit the form
-  document.getElementById('endGameForm').submit();
-}
-
 async function flipCard(e) {
   const element = e.target.closest(".flip-card-inner");
 
@@ -145,26 +122,6 @@ async function flipCard(e) {
   const { name } = element.dataset;
 }
 
-easyMode.addEventListener("click", () => {
-  console.log('Easy mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "easy"; // Set game mode value
-  init("easy");
-});
-
-mediumMode.addEventListener("click", () => {
-  console.log('Medium mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "medium"; // Set game mode value
-  init("medium");
-});
-
-hardMode.addEventListener("click", () => {
-  console.log('Hard mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "hard"; // Set game mode value
-  init("hard");
-});
+easyMode.addEventListener("click", () => init("easy"));
+mediumMode.addEventListener("click", () => init("medium"));
+hardMode.addEventListener("click", () => init("hard"));
