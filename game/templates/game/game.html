@@ -9,6 +9,9 @@
 {% block content %}
 
 
+<a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
+<a href="{% url 'leaderboard' %}" class="nav-btn">Leaderboard</a>
+
 
 <div class="btn-container">
   <button id="easy" class="btn">Easy</button>
@@ -31,7 +34,7 @@
 <form id="endGameForm" method="post" action="{% url 'save_score' %}">
   {% csrf_token %}
   <input type="hidden" id="timeSpent" name="timeSpent">
-  <input type="hidden" id="clicks" name="clicks">
+  <input type="hidden" id="moves" name="moves">
   <input type="hidden" id="gameMode" name="gameMode">
   <button type="submit" style="display:none">Submit</button>
 </form>
