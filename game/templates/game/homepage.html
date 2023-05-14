@@ -3,8 +3,20 @@
 
 {% block title %}Home Page{% endblock %}
 {% block content %}
-<h1>Homepage</h1>
-<a class="bg-info" href="{% url 'homepage' %}">PLAY</a>
+<h1>STAR WARS GAME</h1>
+<h2>How to play:</h2>
+<ul>
+    <li>The objective of the game is to find all matching pairs of cards.</li>
+    <li>The game board consists of a grid of facedown cards.</li>
+    <li>On each turn, you can flip two cards to reveal their faces.</li>
+    <li>If the two flipped cards have the same image, they remain face up and are considered a match.</li>
+    <li>If the two flipped cards have different images, they are flipped back facedown.</li>
+    <li>Remember the positions of the cards as you flip them to help you find matching pairs.</li> 
+    <li>The game continues until all the cards are matched and faced up.</li>   
+    <li>The game is won when all the cards are matched.</li>
+</ul>
+<h1 class="ending">Enjoy and may the force be with you!</h1>
+<a class="bg-info play" href="{% url 'homepage' %}">PLAY</a>
 
 {% endblock %}
 
