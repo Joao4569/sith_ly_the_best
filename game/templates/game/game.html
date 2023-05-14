@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}">
+{% endblock %}
+
 {% block title %}Sample Card{% endblock %}
 {% block content %}
-<div class="hidden" id="wrapper"></div>
+
+
 
 <div class="btn-container">
   <button id="easy" class="btn">Easy</button>
   <button id="medium" class="btn">Medium</button>
   <button id="hard" class="btn">Hard</button>
+  <button id="test">Test Mode</button>
+</div>
+
+<div id="wrapper" class="wrapper"></div>
+
+<div class="text-white">
+  <span>Total Clicks: </span>
+  <span id="totalClicks">0</span>
+</div>
+<div class="text-white">
+  <span>Total Time: </span>
+  <span id="totalTime">0</span>
 </div>
 
 <form id="endGameForm" method="post" action="{% url 'save_score' %}">
   {% csrf_token %}
   <input type="hidden" id="timeSpent" name="timeSpent">
-  <input type="hidden" id="moves" name="moves">
+  <input type="hidden" id="clicks" name="clicks">
   <input type="hidden" id="gameMode" name="gameMode">
   <button type="submit" style="display:none">Submit</button>
 </form>

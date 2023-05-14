@@ -1,25 +1,19 @@
-let cardData;
-
-fetch('/static/data/cardData.json')
-  .then(response => response.json())
-  .then(data => {
-    cardData = data;
-    console.log('Card data:', cardData); // Debug: Log cardData to console
-  })
-  .catch(error => console.error('Error fetching card data:', error));
-
-// import cardData from "../cardData.json" assert { type: "json" };
+import cardData from "/static/data/cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
-const container = document.getElementById("container");
 const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
+const testMode = document.getElementById("test"); // test button
 
 let clicks = 0;
+let totalClicks = 0;
 let choiceOne = "";
 let choiceTwo = "";
 let timerActive = false;
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
 
 export function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -34,10 +28,10 @@ export function shuffleArray(array) {
 }
 
 function init(mode) {
-  console.log('Initializing game with mode:', mode); // Debug: Log game mode to console
   easyMode.remove();
   mediumMode.remove();
   hardMode.remove();
+  testMode.remove(); // remove test button
   let cardArray = cardData;
   let newArr = [...cardArray];
 
@@ -51,7 +45,13 @@ function init(mode) {
     wrapper.style.gridTemplateColumns = `repeat(5, 1fr)`;
   }
 
-  console.log('New card array:', newArr); // Debug: Log new card array to console
+  // If test mode, only take the first card and duplicate it
+  if (mode === "test") {
+    newArr = [cardArray[0], cardArray[0]];
+    wrapper.style.gridTemplateColumns = `repeat(2, 1fr)`;
+  }
+
+  wrapper.classList.add("visible");
 
   const shuffledCards = shuffleArray(newArr);
 
@@ -99,13 +99,16 @@ function gameTimer(delay) {
   });
 }
 
-function endGame(timeSpent, moves) {
-  // Update the form's input fields with the game results
-  document.getElementById('timeSpent').value = timeSpent;
-  document.getElementById('moves').value = moves;
+function startTimer() {
+  startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(function printTime() {
+    elapsedTime = Date.now() - startTime;
+    document.getElementById('totalTime').innerText = (elapsedTime / 1000).toFixed(2);
+  }, 100);
+}
 
-  // Submit the form
-  document.getElementById('endGameForm').submit();
+function stopTimer() {
+  clearInterval(timerInterval);
 }
 
 async function flipCard(e) {
@@ -113,7 +116,15 @@ async function flipCard(e) {
 
   if (timerActive) return;
   if (element.classList.contains("isFlipped")) return;
+  
+  // start the timer on the first click
+  if (totalClicks === 0) {
+    startTimer();
+  }
+
   element.classList.toggle("isFlipped");
+  totalClicks++; 
+  document.getElementById('totalClicks').innerText = totalClicks;
 
   if (clicks === 0) {
     choiceOne = element.dataset.name;
@@ -140,31 +151,19 @@ async function flipCard(e) {
     clicks = 0;
     choiceOne = "";
     choiceTwo = "";
+
+    // Check if all cards are matched
+    const matchedCards = document.querySelectorAll('.flip-card-inner.fixed');
+    if (matchedCards.length === allCards.length) {
+      // All cards are matched, stop the timer
+      stopTimer();
+    }
   }
 
   const { name } = element.dataset;
 }
 
-easyMode.addEventListener("click", () => {
-  console.log('Easy mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "easy"; // Set game mode value
-  init("easy");
-});
-
-mediumMode.addEventListener("click", () => {
-  console.log('Medium mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "medium"; // Set game mode value
-  init("medium");
-});
-
-hardMode.addEventListener("click", () => {
-  console.log('Hard mode clicked'); // Debug: Log button click to console
-  container.classList.remove("container-hidden");
-  wrapper.classList.remove("hidden");
-  document.getElementById('gameMode').value = "hard"; // Set game mode value
-  init("hard");
-});
+easyMode.addEventListener("click", () => init("easy"));
+mediumMode.addEventListener("click", () => init("medium"));
+hardMode.addEventListener("click", () => init("hard"));
+testMode.addEventListener("click", () => init("test")); // test button listener
