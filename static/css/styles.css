@@ -22,6 +22,18 @@ body {
 
 h1 {
     font-family: 'Poller One', sans-serif;
+    font-size: 40px;
+    color: #eeeeee;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.ending {
+    font-size: 24px;
+}
+
+h2 {
+    font-family: 'Arvo', sans-serif;
     color: #eeeeee;
     text-align: center;
 }
@@ -32,12 +44,20 @@ p, li {
     text-align: center;
 }
 
+li {
+    text-align: left;
+}
+
 .btn-container {
     display: flex;
     gap: 1rem;
 }
 
-.btn {
+.play, .nav-btn {
+    text-decoration: none;
+}
+
+.btn, .play, .nav-btn {
     width: fit-content;
     padding: 0.6rem;
     color: #210D32;
@@ -49,7 +69,7 @@ p, li {
     font-weight: bold;
 }
 
-.btn:hover {
+.btn:hover, .play:hover, .nav-btn:hover {
     cursor: pointer;
     box-shadow: 0 0.5rem 1.4rem 0 #eeba1d;
     transform: translateY(-0.1rem);
