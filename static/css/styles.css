@@ -1,144 +1,137 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Poller+One&family=Sanchez&display=swap');
+@import url('https://fonts.cdnfonts.com/css/star-wars');
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
 
 body {
-    /* background-image: linear-gradient(315deg, #537895 0%, #09203f 74%); */
-    background: url(../assets/images/stars.jpg) no-repeat center fixed;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Star Wars', sans-serif;
+    background-image: url("/assets/images/background.png");
+    background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 1rem;
-    align-items: center;
-    gap: 1rem;
-}
-
-h1 {
-    font-family: 'Poller One', sans-serif;
-    font-size: 40px;
-    color: #eeeeee;
+  }
+  
+  header {
     text-align: center;
-    text-transform: uppercase;
-}
+    padding: 20px;
+  }
 
-.ending {
-    font-size: 24px;
-}
 
-h2 {
-    font-family: 'Arvo', sans-serif;
-    color: #eeeeee;
-    text-align: center;
-}
-
-p, li {
-    font-family: 'Sanchez', sans-serif;
-    color: #eeeeee;
-    text-align: center;
-}
-
-li {
-    text-align: left;
-}
-
-.btn-container {
+  
+  .container {
     display: flex;
-    gap: 1rem;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  .lightsaber {
+    width: 10px;
+    height: 200px;
+    background-color: #f00;
+  }
+  
+  .death-star {
+    width: 200px;
+    height: 200px;
+    background-image: url('death-star.png');
+    background-size: cover;
+  }
+  
+  .x-wing {
+    width: 200px;
+    height: 100px;
+    background-image: url('x-wing.png');
+    background-size: cover;
+  }
+  
+  .tie-fighter {
+    width: 150px;
+    height: 150px;
+    background-image: url('tie-fighter.png');
+    background-size: cover;
+  }
+
+button {
+  background-color: yellow;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.play, .nav-btn {
-    text-decoration: none;
+.welcome-section {
+  text-align: center;
+
 }
 
-.btn, .play, .nav-btn {
-    width: fit-content;
-    padding: 0.6rem;
-    color: #210D32;
-    border-radius: 5px;
-    font-family: 'Arvo', sans-serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    background: linear-gradient(315deg, #e1ad38, #F2D022);
-    font-weight: bold;
-}
-
-.btn:hover, .play:hover, .nav-btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0.5rem 1.4rem 0 #eeba1d;
-    transform: translateY(-0.1rem);
-    transition: transform 150ms;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 800px;
-}
-
-.wrapper, .container {
-    display: flex; /* added this line */
-    background-color: rgba(1,1,1,0.7);
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    gap: 1rem;
-    width: 100%;
-    border-radius: 10px;
-    padding: 2vh 2vw;
-    border: 7px solid rgba(242,208,34,0.9);
-}
-
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    max-width: 1000px;
-}
-
-.hidden {
+.modal {
     display: none;
-}
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .modal-content {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    width: 60%;
+    margin: 20% auto;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .close {
+    color: #fff;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 
-.flip-card {
+  /* Game HTML */
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .flip-card {
     position: relative;
     color: rgb(27, 27, 27);
-    width: 20vh;
+    width: 20rem;
     perspective: 1000px;
     font-size: 12px;
     aspect-ratio: 2/3;
-    height: 20vh;
-}
+  }
 
-.flip-card-inner {
+  .flip-card-inner {
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
-
-    background: linear-gradient(white, white) padding-box,
-        linear-gradient(135deg, rgb(79, 79, 250), rgb(255, 51, 51)) border-box;
+    background: linear-gradient(white, white) padding-box, linear-gradient(135deg, rgb(79, 79, 250), rgb(255, 51, 51)) border-box;
     border-radius: 15px;
     border: 4px solid transparent;
-    /* box-shadow: inset 0 0 50px red, inset 20px 0 80px red, inset -20px 0 80px blue,
-    inset 20px 0 300px red, inset -20px 0 300px blue, 0 0 50px darkslategray,
-    -10px 0 80px red, 10px 0 80px blue; */
-}
+  }
 
-.card-image {
+  .card-image {
     object-fit: cover;
     width: 100%;
     height: 100%;
-}
+  }
 
-.name-container {
+  .name-container {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -146,28 +139,13 @@ li {
     display: flex;
     justify-content: center;
     padding: 1rem;
-}
+  }
 
-.name {
-    color: white;
-    background-color: rgb(24, 30, 30);
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
-    font-size: large;
-    font-family: 'Sanchez', Geneva, Tahoma, sans-serif;
-    text-align: center;
-}
-
-.isFlipped {
+  .isFlipped {
     transform: rotateY(180deg);
-}
-
-.fixed {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
+  }
+  .flip-card-front,
+  .flip-card-back {
     border-radius: 10px;
     overflow: hidden;
     position: absolute;
@@ -176,14 +154,14 @@ li {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: black;
-}
-
-.flip-card-front {
+  }
+  
+  .flip-card-front {
     color: black;
     background: dodgerblue;
-}
-
-.flip-card-back {
+  }
+  
+  .flip-card-back {
     transform: rotateY(180deg);
     background: red;
-}
+  }  
