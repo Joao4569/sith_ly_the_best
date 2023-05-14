@@ -4,11 +4,16 @@ const wrapper = document.getElementById("wrapper");
 const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
+const testMode = document.getElementById("test"); // test button
 
 let clicks = 0;
+let totalClicks = 0;
 let choiceOne = "";
 let choiceTwo = "";
 let timerActive = false;
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
 
 export function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -26,6 +31,7 @@ function init(mode) {
   easyMode.remove();
   mediumMode.remove();
   hardMode.remove();
+  testMode.remove(); // remove test button
   let cardArray = cardData;
   let newArr = [...cardArray];
 
@@ -38,6 +44,14 @@ function init(mode) {
     newArr = cardArray.slice(0, 20);
     wrapper.style.gridTemplateColumns = `repeat(5, 1fr)`;
   }
+
+  // If test mode, only take the first card and duplicate it
+  if (mode === "test") {
+    newArr = [cardArray[0], cardArray[0]];
+    wrapper.style.gridTemplateColumns = `repeat(2, 1fr)`;
+  }
+
+  wrapper.classList.add("visible");
 
   const shuffledCards = shuffleArray(newArr);
 
@@ -85,12 +99,32 @@ function gameTimer(delay) {
   });
 }
 
+function startTimer() {
+  startTime = Date.now() - elapsedTime;
+  timerInterval = setInterval(function printTime() {
+    elapsedTime = Date.now() - startTime;
+    document.getElementById('totalTime').innerText = (elapsedTime / 1000).toFixed(2);
+  }, 100);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
 async function flipCard(e) {
   const element = e.target.closest(".flip-card-inner");
 
   if (timerActive) return;
   if (element.classList.contains("isFlipped")) return;
+  
+  // start the timer on the first click
+  if (totalClicks === 0) {
+    startTimer();
+  }
+
   element.classList.toggle("isFlipped");
+  totalClicks++; 
+  document.getElementById('totalClicks').innerText = totalClicks;
 
   if (clicks === 0) {
     choiceOne = element.dataset.name;
@@ -117,6 +151,13 @@ async function flipCard(e) {
     clicks = 0;
     choiceOne = "";
     choiceTwo = "";
+
+    // Check if all cards are matched
+    const matchedCards = document.querySelectorAll('.flip-card-inner.fixed');
+    if (matchedCards.length === allCards.length) {
+      // All cards are matched, stop the timer
+      stopTimer();
+    }
   }
 
   const { name } = element.dataset;
@@ -125,3 +166,4 @@ async function flipCard(e) {
 easyMode.addEventListener("click", () => init("easy"));
 mediumMode.addEventListener("click", () => init("medium"));
 hardMode.addEventListener("click", () => init("hard"));
+testMode.addEventListener("click", () => init("test")); // test button listener

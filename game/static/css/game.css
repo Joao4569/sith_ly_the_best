@@ -1,0 +1,11 @@
+.text-white {
+    color: white;
+}
+
+#wrapper {
+    display: none;  /* Initially hide the wrapper */
+  }
+  
+  #wrapper.visible {
+    display: grid;  /* Show the wrapper when the 'visible' class is added */
+  }
