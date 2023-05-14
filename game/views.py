@@ -19,12 +19,11 @@ def save_score(request):
     if request.method == 'POST':
         time_spent = request.POST.get('timeSpent')
         moves = request.POST.get('moves')
-        user = request.user
+        user = request.user if request.user.is_authenticated else None
 
-        score = Score.objects.create(
-            user=user, time_spent=time_spent, moves=moves)
+        score = Score.objects.create(user=user, time_spent=time_spent, moves=moves)
         score.save()
 
-        return redirect('game')  # Redirect to the game view
+        return redirect('game')
     else:
         return HttpResponse("Error, incorrect request method", status=405)

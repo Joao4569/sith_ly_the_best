@@ -87,10 +87,11 @@ p, li {
 .flip-card {
     position: relative;
     color: rgb(27, 27, 27);
-    width: 100%;
+    width: 20vh;
     perspective: 1000px;
     font-size: 12px;
     aspect-ratio: 2/3;
+    height: 20vh;
 }
 
 .flip-card-inner {
@@ -164,4 +165,11 @@ p, li {
 .flip-card-back {
     transform: rotateY(180deg);
     background: red;
+}
+
+
+div#wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }

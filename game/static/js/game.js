@@ -149,6 +149,7 @@ easyMode.addEventListener("click", () => {
   console.log('Easy mode clicked'); // Debug: Log button click to console
   container.classList.remove("container-hidden");
   wrapper.classList.remove("hidden");
+  document.getElementById('gameMode').value = "easy"; // Set game mode value
   init("easy");
 });
 
@@ -156,6 +157,7 @@ mediumMode.addEventListener("click", () => {
   console.log('Medium mode clicked'); // Debug: Log button click to console
   container.classList.remove("container-hidden");
   wrapper.classList.remove("hidden");
+  document.getElementById('gameMode').value = "medium"; // Set game mode value
   init("medium");
 });
 
@@ -163,5 +165,6 @@ hardMode.addEventListener("click", () => {
   console.log('Hard mode clicked'); // Debug: Log button click to console
   container.classList.remove("container-hidden");
   wrapper.classList.remove("hidden");
+  document.getElementById('gameMode').value = "hard"; // Set game mode value
   init("hard");
 });
