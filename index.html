@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet" />
-    <title>Sample Card</title>
+  <link rel="stylesheet" type="text/css" href="static/assets/css/styles.css">
+  <link rel="icon" href="static/assets/images/favicon.png" type="image/x-icon">
 </head>
-
 <body>
-    <div id ="container" class="container">
-        <h1>STAR WARS GAME</h1>
-        <p>These are the rules for how to play:</p>
-        <ul>
-            <li>Rule 1</li>
-            <li>Rule 2</li>
-            <li>Rule 3</li>
-        </ul>
-        <p>This is how you will be awarded points:</p>
-        <ul>
-            <li>Point allocation explanation</li>
-        </ul>
-        <p>All that's left to do is select your difficulty and enjoy!</p>
+  <header>
+    <h1>Star Wars Game</h1>
+  </header>
+  <div class="welcome-section">
+    <h2>Welcome to the Star Wars Game!</h2>
+    <p>May the Force be with you.</p>
+    <button id="start-game">Start Game</button>
+    <button id="show-rules">Show Rules</button>
+  </div>
 
-        <div class="btn-container">
-            <button id="easy" class="btn">Easy</button>
-            <button id="medium" class="btn">Medium</button>
-            <button id="hard" class="btn">Hard</button>
-        </div>
+  <div id="rules-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Game Rules</h3>
+        <p>1- The objective of the game is to find all matching pairs of cards.</p>
+        <p>2- The game board consists of a grid of facedown cards.</p>
+        <p>3- On each turn, you can flip two cards to reveal their faces.</p>
+        <p>4- If the two flipped cards have the same image, they remain face up and are considered a match.</p>
+        <p>5- If the two flipped cards have different images, they are flipped back facedown.</p>
+        <p>6- Remember the positions of the cards as you flip them to help you find matching pairs.</p>
+        <p>7- The game continues until all the cards are matched and faced up.</p>
+        <p>8- The game is won when all the cards are matched, and a message or a prompt can be displayed to signify the completion of the game.</p>
+        <p>9- Enjoy and try to beat your own record time!.</p>
+      </p>
     </div>
+  </div>
 
-    <div id="wrapper" class="wrapper hidden"></div>
-    <script type="module" src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
-
 </html>
