@@ -4,7 +4,11 @@ from .models import Game, Score
 
 
 def game_view(request):
-    return render(request, 'game/game.html')
+    scores = Score.objects.all()
+    context = {
+        'Score': scores
+    }
+    return render(request, 'game/game.html', context)
 
 
 def homepage(request):

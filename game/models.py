@@ -22,3 +22,6 @@ class Score(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.moves} moves in {self.time_spent} seconds"
+
+    def totalScore(self):
+        return self.time_spent * self.moves

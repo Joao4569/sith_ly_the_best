@@ -1,4 +1,159 @@
-import cardData from "/static/data/cardData.json" assert { type: "json" };
+// import cardData from "/static/data/cardData.json"
+// assert {
+//   type: "json"
+// };
+
+const cardData = [{
+    name: "Darth Maul",
+    data: "maul",
+    image: "maul.jpg"
+  },
+  {
+    name: "Darth Maul",
+    data: "maul",
+    image: "maul.jpg"
+  },
+  // {
+  //   "name": "Darth Sidious",
+  //   "data": "sidious",
+  //   "image": "sidious.jpg"
+  // },
+  // {
+  //   "name": "Darth Sidious",
+  //   "data": "sidious",
+  //   "image": "sidious.jpg"
+  // },
+  // {
+  //   "name": "Darth Vader",
+  //   "data": "vader",
+  //   "image": "vader.jpg"
+  // },
+  // {
+  //   "name": "Darth Vader",
+  //   "data": "vader",
+  //   "image": "vader.jpg"
+  // },
+  // {
+  //   "name": "Luke SkyWalker",
+  //   "data": "luke",
+  //   "image": "luke.jpg"
+  // },
+  // {
+  //   "name": "Luke SkyWalker",
+  //   "data": "luke",
+  //   "image": "luke.jpg"
+  // },
+  // {
+  //   "name": "Qui Gon Jinn",
+  //   "data": "qui-gon",
+  //   "image": "qui-gon.jpg"
+  // },
+  // {
+  //   "name": "Qui Gon Jinn",
+  //   "data": "qui-gon",
+  //   "image": "qui-gon.jpg"
+  // },
+  // {
+  //   "name": "Obi Wan Kenobi",
+  //   "data": "obi-wan",
+  //   "image": "obi-wan.jpg"
+  // },
+  // {
+  //   "name": "Obi Wan Kenobi",
+  //   "data": "obi-wan",
+  //   "image": "obi-wan.jpg"
+  // },
+  // {
+  //   "name": "Mace Windu",
+  //   "data": "mace-windu",
+  //   "image": "mace-windu.jpg"
+  // },
+  // {
+  //   "name": "Mace Windu",
+  //   "data": "mace-windu",
+  //   "image": "mace-windu.jpg"
+  // },
+  // {
+  //   "name": "Boba Fett",
+  //   "data": "boba-fett",
+  //   "image": "boba-fett.jpg"
+  // },
+  // {
+  //   "name": "Boba Fett",
+  //   "data": "boba-fett",
+  //   "image": "boba-fett.jpg"
+  // },
+  // {
+  //   "name": "Han Solo",
+  //   "data": "han-solo",
+  //   "image": "han-solo.jpg"
+  // },
+  // {
+  //   "name": "Han Solo",
+  //   "data": "han-solo",
+  //   "image": "han-solo.jpg"
+  // },
+  // {
+  //   "name": "R2 D2",
+  //   "data": "r2d2",
+  //   "image": "r2d2.jpg"
+  // },
+  // {
+  //   "name": "R2 D2",
+  //   "data": "r2d2",
+  //   "image": "r2d2.jpg"
+  // },
+  // {
+  //   "name": "C3PO",
+  //   "data": "c3po",
+  //   "image": "c3po.jpg"
+  // },
+  // {
+  //   "name": "C3PO",
+  //   "data": "c3po",
+  //   "image": "c3po.jpg"
+  // },
+  // {
+  //   "name": "Anakin Skywalker",
+  //   "data": "anakin",
+  //   "image": "anakin.jpg"
+  // },
+  // {
+  //   "name": "Anakin Skywalker",
+  //   "data": "anakin",
+  //   "image": "anakin.jpg"
+  // },
+  // {
+  //   "name": "Chewbacca",
+  //   "data": "chewbacca",
+  //   "image": "chewbacca.webp"
+  // },
+  // {
+  //   "name": "Chewbacca",
+  //   "data": "chewbacca",
+  //   "image": "chewbacca.webp"
+  // },
+  // {
+  //   "name": "Princess Leia",
+  //   "data": "leia",
+  //   "image": "leia.jpg"
+  // },
+  // {
+  //   "name": "Princess Leia",
+  //   "data": "leia",
+  //   "image": "leia.jpg"
+  // },
+  // {
+  //   "name": "Yoda",
+  //   "data": "yoda",
+  //   "image": "yoda.jpg"
+  // },
+  // {
+  //   "name": "Yoda",
+  //   "data": "yoda",
+  //   "image": "yoda.jpg"
+  // }
+]
 
 const wrapper = document.getElementById("wrapper");
 const easyMode = document.getElementById("easy");
@@ -109,6 +264,27 @@ function startTimer() {
 
 function stopTimer() {
   clearInterval(timerInterval);
+  endGame(elapsedTime, totalClicks)
+}
+
+
+function endGame(time, moves) {
+  // Update the form's input fields with the game results
+  const totalTime = document.getElementById('timeSpent')
+  const totalMoves = document.getElementById('moves')
+  const gameMode = document.getElementById('gameMode')
+
+  console.log(totalTime, totalMoves, gameMode)
+
+
+
+
+
+  gameMode.value = 'easy'
+  totalMoves.value = moves
+  totalTime.value = time
+  // Submit the form
+  document.getElementById('endGameForm').submit();
 }
 
 async function flipCard(e) {
@@ -116,14 +292,14 @@ async function flipCard(e) {
 
   if (timerActive) return;
   if (element.classList.contains("isFlipped")) return;
-  
+
   // start the timer on the first click
   if (totalClicks === 0) {
     startTimer();
   }
 
   element.classList.toggle("isFlipped");
-  totalClicks++; 
+  totalClicks++;
   document.getElementById('totalClicks').innerText = totalClicks;
 
   if (clicks === 0) {
@@ -160,7 +336,9 @@ async function flipCard(e) {
     }
   }
 
-  const { name } = element.dataset;
+  const {
+    name
+  } = element.dataset;
 }
 
 easyMode.addEventListener("click", () => init("easy"));
