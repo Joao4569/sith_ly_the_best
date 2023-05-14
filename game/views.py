@@ -7,6 +7,15 @@ def game_view(request):
     return render(request, 'game/game.html')
 
 
+def leaderboard(request):
+    scores = Score.objects.all()
+    context = {
+        'Score': scores
+    }
+    paginate_by = 10
+    return render(request, 'game/leaderboard.html', context)
+
+
 def homepage(request):
     # just returning a simple response for now
     # return HttpResponse("This is the home page")
