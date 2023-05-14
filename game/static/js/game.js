@@ -267,22 +267,45 @@ function stopTimer() {
   endGame(elapsedTime, totalClicks)
 }
 
+function calculateScore(timeSpent, numMoves, mode) {
+  const TIME_WEIGHT = 1;
+  const MOVE_WEIGHT = 2;
+
+  const score =
+    ((1 / timeSpent) * TIME_WEIGHT + (1 / numMoves) * MOVE_WEIGHT) * 10000;
+
+
+  if (mode === "medium") {
+    return score * 2;
+  }
+  if (mode === "hard") {
+    return score * 4;
+  } else {
+    return score;
+  }
+}
+
+
 
 function endGame(time, moves) {
   // Update the form's input fields with the game results
   const totalTime = document.getElementById('timeSpent')
   const totalMoves = document.getElementById('moves')
   const gameMode = document.getElementById('gameMode')
+  const gameScore = document.getElementById('score')
+
 
   console.log(totalTime, totalMoves, gameMode)
 
 
+  const score = calculateScore(time, moves, 'easy')
 
 
-
+  console.log(score)
   gameMode.value = 'easy'
   totalMoves.value = moves
   totalTime.value = time
+  gameScore.value = score
   // Submit the form
   document.getElementById('endGameForm').submit();
 }
