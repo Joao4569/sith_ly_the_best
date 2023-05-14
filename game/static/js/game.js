@@ -1,4 +1,14 @@
-import cardData from "../cardData.json" assert { type: "json" };
+let cardData;
+
+fetch('/static/data/cardData.json')
+  .then(response => response.json())
+  .then(data => {
+    cardData = data;
+    console.log('Card data:', cardData); // Debug: Log cardData to console
+  })
+  .catch(error => console.error('Error fetching card data:', error));
+
+// import cardData from "../cardData.json" assert { type: "json" };
 
 const wrapper = document.getElementById("wrapper");
 const container = document.getElementById("container");
@@ -24,6 +34,7 @@ export function shuffleArray(array) {
 }
 
 function init(mode) {
+  console.log('Initializing game with mode:', mode); // Debug: Log game mode to console
   easyMode.remove();
   mediumMode.remove();
   hardMode.remove();
@@ -40,6 +51,8 @@ function init(mode) {
     wrapper.style.gridTemplateColumns = `repeat(5, 1fr)`;
   }
 
+  console.log('New card array:', newArr); // Debug: Log new card array to console
+
   const shuffledCards = shuffleArray(newArr);
 
   shuffledCards.forEach((card) => {
@@ -52,14 +65,14 @@ function init(mode) {
       <div class="flip-card-front">
         <img
           class="card-image"
-          src="assets/images/cardfront.jpg"
+          src="/static/assets/images/cardfront.jpg"
           alt="front card image"
         />
       </div>
       <div class="flip-card-back">
         <img
           class="card-image"
-          src="assets/images/${card.image}"
+          src="/static/assets/images/${card.image}"
           alt="${card.name}"
         />
         <div class="name-container">
@@ -84,6 +97,15 @@ function gameTimer(delay) {
       timerActive = false;
     }, delay);
   });
+}
+
+function endGame(timeSpent, moves) {
+  // Update the form's input fields with the game results
+  document.getElementById('timeSpent').value = timeSpent;
+  document.getElementById('moves').value = moves;
+
+  // Submit the form
+  document.getElementById('endGameForm').submit();
 }
 
 async function flipCard(e) {
@@ -124,17 +146,22 @@ async function flipCard(e) {
 }
 
 easyMode.addEventListener("click", () => {
-    container.classList.add("hidden");
-    wrapper.classList.remove("hidden");
-    init("easy");
+  console.log('Easy mode clicked'); // Debug: Log button click to console
+  container.classList.remove("container-hidden");
+  wrapper.classList.remove("hidden");
+  init("easy");
 });
+
 mediumMode.addEventListener("click", () => {
-    container.classList.add("hidden");
-    wrapper.classList.remove("hidden");
-    init("medium");
+  console.log('Medium mode clicked'); // Debug: Log button click to console
+  container.classList.remove("container-hidden");
+  wrapper.classList.remove("hidden");
+  init("medium");
 });
+
 hardMode.addEventListener("click", () => {
-    container.classList.add("hidden");
-    wrapper.classList.remove("hidden");
-    init("hard");
+  console.log('Hard mode clicked'); // Debug: Log button click to console
+  container.classList.remove("container-hidden");
+  wrapper.classList.remove("hidden");
+  init("hard");
 });
