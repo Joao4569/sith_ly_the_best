@@ -4,11 +4,16 @@ from .models import Game, Score
 
 
 def game_view(request):
+    return render(request, 'game/game.html')
+
+
+def leaderboard(request):
     scores = Score.objects.all()
     context = {
         'Score': scores
     }
-    return render(request, 'game/game.html', context)
+    paginate_by = 10
+    return render(request, 'game/leaderboard.html', context)
 
 
 def homepage(request):

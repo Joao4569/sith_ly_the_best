@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}">
+{% endblock %}
+
+
+{% block title %}Sample Card{% endblock %}
+{% block content %}
+<a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
+<a href="{% url 'game' %}" class="nav-btn">Play</a>
+{% for score in Score %}
+<p>{{score.user}} - {{ score.totalScore }}</p>
+{% endfor %}
+
+{% endblock %}
