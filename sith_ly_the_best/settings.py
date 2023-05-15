@@ -24,7 +24,7 @@ if os.path.isfile("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Johnny - Link file to the templates directory in Heroku
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+# TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -106,6 +106,15 @@ TEMPLATES = [
     },
 ]
 
+# Taken from Django allauth documentation.
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of allauth.
+    'django.contrib.auth.backends.ModelBackend',
+
+    # Allauth specific authentication methods, i.e. login by email.
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 WSGI_APPLICATION = 'sith_ly_the_best.wsgi.application'
 
 
@@ -128,7 +137,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
@@ -173,7 +182,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Johnny - Setup media storage
-MEDIA_URL = '/media/'
+MEDIA_URL = '/static/assets/images/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type

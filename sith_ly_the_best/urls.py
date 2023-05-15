@@ -18,7 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # path to Django admin site
     path('admin/', admin.site.urls),
-    path('', include('game.urls')),
+
+    # Path to Django Allauth URL's
     path('accounts/', include('allauth.urls')),
+
+    # Path to game app URL's
+    path('', include('game.urls')),
+    
 ]
