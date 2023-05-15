@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.views import View
 from .models import Game, Score
 from django.db.models import F, ExpressionWrapper, FloatField
 
@@ -15,10 +16,11 @@ def leaderboard(request):
     return render(request, 'game/leaderboard.html', {'top_scores': top_scores})
 
 
-def homepage(request):
+def homepage(View):
     # just returning a simple response for now
     # return HttpResponse("This is the home page")
-    return render(request, 'game/homepage.html')
+    def get(self, request):
+        return render(request, 'game/homepage.html')
 
 
 def save_score(request):
