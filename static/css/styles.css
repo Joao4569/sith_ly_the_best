@@ -7,6 +7,21 @@
     margin: 0;
 }
 
+
+
+
+button {
+    width: fit-content;
+    padding: 0.6rem;
+    color: #210D32;
+    border-radius: 5px;
+    font-family: 'Arvo', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    background: linear-gradient(315deg, #e1ad38, #F2D022);
+    font-weight: bold;
+}
+
 body {
     /* background-image: linear-gradient(315deg, #537895 0%, #09203f 74%); */
     background: url(../assets/images/stars.jpg) no-repeat center fixed;
@@ -38,7 +53,8 @@ h2 {
     text-align: center;
 }
 
-p, li {
+p,
+li {
     font-family: 'Sanchez', sans-serif;
     color: #eeeeee;
     text-align: center;
@@ -53,11 +69,14 @@ li {
     gap: 1rem;
 }
 
-.play, .nav-btn {
+.play,
+.nav-btn {
     text-decoration: none;
 }
 
-.btn, .play, .nav-btn {
+.btn,
+.play,
+.nav-btn {
     width: fit-content;
     padding: 0.6rem;
     color: #210D32;
@@ -69,7 +88,9 @@ li {
     font-weight: bold;
 }
 
-.btn:hover, .play:hover, .nav-btn:hover {
+.btn:hover,
+.play:hover,
+.nav-btn:hover {
     cursor: pointer;
     box-shadow: 0 0.5rem 1.4rem 0 #eeba1d;
     transform: translateY(-0.1rem);
@@ -82,9 +103,11 @@ li {
     max-width: 800px;
 }
 
-.wrapper, .container {
-    display: flex; /* added this line */
-    background-color: rgba(1,1,1,0.7);
+.wrapper,
+.container {
+    display: flex;
+    /* added this line */
+    background-color: rgba(1, 1, 1, 0.7);
     justify-content: center;
     align-items: center;
     height: fit-content;
@@ -92,7 +115,7 @@ li {
     width: 100%;
     border-radius: 10px;
     padding: 2vh 2vw;
-    border: 7px solid rgba(242,208,34,0.9);
+    border: 7px solid rgba(242, 208, 34, 0.9);
 }
 
 .wrapper {
@@ -186,4 +209,42 @@ li {
 .flip-card-back {
     transform: rotateY(180deg);
     background: red;
+}
+
+
+
+/* LOGIN IN STYLING */
+
+
+.sign-in-headline {
+    font-size: xx-large;
+
+}
+
+.login,
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border: 5px solid goldenrod;
+    padding: 2rem;
+    color: black;
+    gap: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 15px gold;
+}
+
+.login p,
+.signup p {
+    color: black;
+    font-family: 'Arvo', sans-serif;
+
+}
+
+.login input,
+.signup input {
+    padding: .5rem;
+    border-radius: 10px
 }
