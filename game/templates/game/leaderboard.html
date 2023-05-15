@@ -15,12 +15,8 @@
 <div class="leaderboard">
     {% for score in top_scores %}
     <p class="score">{{ score.user.username }}: {{ score.total_score }}</p>
+    {% empty %}
+    <p>No scores yet!</p>
     {% endfor %}
 </div>
-
-{% empty %}
-<p>No scores yet!</p>
-{% endfor %}
-
-
 {% endblock %}
