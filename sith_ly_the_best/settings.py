@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'game',
 
     # Johnny testing
-    'sith_ly_the_best',
+    #'sith_ly_the_best',
 ]
 
 SITE_ID = 1
@@ -107,13 +107,13 @@ TEMPLATES = [
 ]
 
 # Taken from Django allauth documentation.
-AUTHENTICATION_BACKENDS = (
+# AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of allauth.
-    'django.contrib.auth.backends.ModelBackend',
+ #   'django.contrib.auth.backends.ModelBackend',
 
     # Allauth specific authentication methods, i.e. login by email.
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+   # 'allauth.account.auth_backends.AuthenticationBackend',
+#)
 
 WSGI_APPLICATION = 'sith_ly_the_best.wsgi.application'
 
