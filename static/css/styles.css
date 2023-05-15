@@ -24,7 +24,7 @@ button {
 
 body {
     /* background-image: linear-gradient(315deg, #537895 0%, #09203f 74%); */
-    background: url(../assets/images/stars.jpg) no-repeat center fixed;
+    background: url(/static/assets/stars.jpg) no-repeat center fixed;
     background-size: cover;
     min-height: 100vh;
     display: flex;
@@ -225,39 +225,38 @@ li {
 
 
 
-/* LOGIN IN STYLING */
+    /* LOGIN IN STYLING */
 
 
-.sign-in-headline {
-    font-size: xx-large;
+    .sign-in-headline {
+        font-size: xx-large;
 
-}
+    }
 
-.login,
-.signup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: whitesmoke;
-    border: 5px solid goldenrod;
-    padding: 2rem;
-    color: black;
-    gap: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 0 50px 15px gold;
-}
+    .login,
+    .signup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        border: 5px solid goldenrod;
+        padding: 2rem;
+        color: black;
+        gap: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 0 50px 15px gold;
+    }
 
-.login p,
-.signup p {
-    color: black;
-    font-family: 'Arvo', sans-serif;
+    .login p,
+    .signup p {
+        color: black;
+        font-family: 'Arvo', sans-serif;
 
-}
+    }
 
-.login input,
-.signup input {
-    padding: .5rem;
-    border-radius: 10px
-
-}
+    .login input,
+    .signup input {
+        padding: .5rem;
+        border-radius: 10px
+    }
