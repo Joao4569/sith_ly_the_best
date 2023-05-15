@@ -26,15 +26,18 @@
     <title>{% block title %}Default Title{% endblock %}</title>
 
 </head>
+
 <body>
+    <audio src="{% static 'audio.starwarstheme.mp3' %}"></audio>
+
 
     {% block page_header %}
     {% endblock %}
-    
-   
-        {% block content %}
-        {% endblock %}
-  
+
+
+    {% block content %}
+    {% endblock %}
+
 
 
     {% block corejs %}
