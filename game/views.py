@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
+# from django.views import View
 from .models import Game, Score
 from django.db.models import F, ExpressionWrapper, FloatField
 from django.contrib.auth.decorators import login_required
@@ -18,11 +18,10 @@ def leaderboard(request):
     return render(request, 'game/leaderboard.html', {'top_scores': top_scores})
 
 
-def homepage(View):
+def homepage(request):
     # just returning a simple response for now
     # return HttpResponse("This is the home page")
-    def get(self, request):
-        return render(request, 'game/homepage.html')
+    return render(request, 'game/homepage.html')
 
 
 def save_score(request):
