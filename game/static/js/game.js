@@ -161,8 +161,6 @@ const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
 
-const testMode = document.getElementById("test"); // test button
-
 let clicks = 0;
 let totalClicks = 0;
 let choiceOne = "";
@@ -188,12 +186,8 @@ function init(mode) {
   easyMode.remove();
   mediumMode.remove();
   hardMode.remove();
-  testMode.remove(); // remove test button
 
   scorecontainer.style.display = 'flex'
-
-
-
 
   let cardArray = cardData;
   let newArr = [...cardArray];
@@ -206,12 +200,6 @@ function init(mode) {
   if (mode === "medium") {
     newArr = cardArray.slice(0, 20);
     wrapper.style.gridTemplateColumns = `repeat(5, 1fr)`;
-  }
-
-  // If test mode, only take the first card and duplicate it
-  if (mode === "test") {
-    newArr = [cardArray[0], cardArray[0]];
-    wrapper.style.gridTemplateColumns = `repeat(2, 1fr)`;
   }
 
   wrapper.classList.add("visible");
@@ -375,4 +363,3 @@ async function flipCard(e) {
 easyMode.addEventListener("click", () => init("easy"));
 mediumMode.addEventListener("click", () => init("medium"));
 hardMode.addEventListener("click", () => init("hard"));
-testMode.addEventListener("click", () => init("test")); // test button listener
