@@ -2,8 +2,10 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Game, Score
 from django.db.models import F, ExpressionWrapper, FloatField
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def game_view(request):
     return render(request, 'game/game.html')
 
