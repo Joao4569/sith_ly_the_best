@@ -24,4 +24,7 @@ class Score(models.Model):
         return f"{self.user.username} - {self.moves} moves in {self.time_spent} seconds"
 
     def totalScore(self):
-        return self.moves / self.time_spent
+        score = ((1 / self.time_spent) * 10 + (1 / self.moves) * 1) * 10000
+        return round(score)
+
+        
