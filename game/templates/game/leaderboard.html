@@ -10,8 +10,10 @@
 {% block content %}
 <a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
 <a href="{% url 'game' %}" class="nav-btn">Play</a>
-{% for score in Score %}
-<p>{{score.user}} - {{ score.totalScore }}</p>
+{% for score in top_scores %}
+    <p>{{ score.user.username }}: {{ score.total_score }}</p>
+{% empty %}
+    <p>No scores yet!</p>
 {% endfor %}
 
 {% endblock %}
