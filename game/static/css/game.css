@@ -53,6 +53,7 @@
 }
 
 #wrapper.visible {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   /* Show the wrapper when the 'visible' class is added */
 }
