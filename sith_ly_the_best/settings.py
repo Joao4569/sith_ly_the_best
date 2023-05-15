@@ -106,14 +106,6 @@ TEMPLATES = [
     },
 ]
 
-# Taken from Django allauth documentation.
-# AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of allauth.
- #   'django.contrib.auth.backends.ModelBackend',
-
-    # Allauth specific authentication methods, i.e. login by email.
-   # 'allauth.account.auth_backends.AuthenticationBackend',
-#)
 
 WSGI_APPLICATION = 'sith_ly_the_best.wsgi.application'
 
