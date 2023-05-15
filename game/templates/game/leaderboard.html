@@ -11,18 +11,15 @@
 <a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
 <a href="{% url 'game' %}" class="nav-btn">Play</a>
 
-<div class="leaderboard">
-    {% for score in Score %}
-    <p class="score">{{score.user}} : {{ score.totalScore }}</p>
-    {% endfor %}
 
+<div class="leaderboard">
+    {% for score in top_scores %}
+    <p class="score">{{ score.user.username }}: {{ score.total_score }}</p>
+    {% endfor %}
 </div>
 
-
-{% for score in top_scores %}
-    <p>{{ score.user.username }}: {{ score.total_score }}</p>
 {% empty %}
-    <p>No scores yet!</p>
+<p>No scores yet!</p>
 {% endfor %}
 
 
