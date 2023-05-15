@@ -13,152 +13,154 @@ const cardData = [{
     data: "maul",
     image: "maul.jpg"
   },
-  // {
-  //   "name": "Darth Sidious",
-  //   "data": "sidious",
-  //   "image": "sidious.jpg"
-  // },
-  // {
-  //   "name": "Darth Sidious",
-  //   "data": "sidious",
-  //   "image": "sidious.jpg"
-  // },
-  // {
-  //   "name": "Darth Vader",
-  //   "data": "vader",
-  //   "image": "vader.jpg"
-  // },
-  // {
-  //   "name": "Darth Vader",
-  //   "data": "vader",
-  //   "image": "vader.jpg"
-  // },
-  // {
-  //   "name": "Luke SkyWalker",
-  //   "data": "luke",
-  //   "image": "luke.jpg"
-  // },
-  // {
-  //   "name": "Luke SkyWalker",
-  //   "data": "luke",
-  //   "image": "luke.jpg"
-  // },
-  // {
-  //   "name": "Qui Gon Jinn",
-  //   "data": "qui-gon",
-  //   "image": "qui-gon.jpg"
-  // },
-  // {
-  //   "name": "Qui Gon Jinn",
-  //   "data": "qui-gon",
-  //   "image": "qui-gon.jpg"
-  // },
-  // {
-  //   "name": "Obi Wan Kenobi",
-  //   "data": "obi-wan",
-  //   "image": "obi-wan.jpg"
-  // },
-  // {
-  //   "name": "Obi Wan Kenobi",
-  //   "data": "obi-wan",
-  //   "image": "obi-wan.jpg"
-  // },
-  // {
-  //   "name": "Mace Windu",
-  //   "data": "mace-windu",
-  //   "image": "mace-windu.jpg"
-  // },
-  // {
-  //   "name": "Mace Windu",
-  //   "data": "mace-windu",
-  //   "image": "mace-windu.jpg"
-  // },
-  // {
-  //   "name": "Boba Fett",
-  //   "data": "boba-fett",
-  //   "image": "boba-fett.jpg"
-  // },
-  // {
-  //   "name": "Boba Fett",
-  //   "data": "boba-fett",
-  //   "image": "boba-fett.jpg"
-  // },
-  // {
-  //   "name": "Han Solo",
-  //   "data": "han-solo",
-  //   "image": "han-solo.jpg"
-  // },
-  // {
-  //   "name": "Han Solo",
-  //   "data": "han-solo",
-  //   "image": "han-solo.jpg"
-  // },
-  // {
-  //   "name": "R2 D2",
-  //   "data": "r2d2",
-  //   "image": "r2d2.jpg"
-  // },
-  // {
-  //   "name": "R2 D2",
-  //   "data": "r2d2",
-  //   "image": "r2d2.jpg"
-  // },
-  // {
-  //   "name": "C3PO",
-  //   "data": "c3po",
-  //   "image": "c3po.jpg"
-  // },
-  // {
-  //   "name": "C3PO",
-  //   "data": "c3po",
-  //   "image": "c3po.jpg"
-  // },
-  // {
-  //   "name": "Anakin Skywalker",
-  //   "data": "anakin",
-  //   "image": "anakin.jpg"
-  // },
-  // {
-  //   "name": "Anakin Skywalker",
-  //   "data": "anakin",
-  //   "image": "anakin.jpg"
-  // },
-  // {
-  //   "name": "Chewbacca",
-  //   "data": "chewbacca",
-  //   "image": "chewbacca.webp"
-  // },
-  // {
-  //   "name": "Chewbacca",
-  //   "data": "chewbacca",
-  //   "image": "chewbacca.webp"
-  // },
-  // {
-  //   "name": "Princess Leia",
-  //   "data": "leia",
-  //   "image": "leia.jpg"
-  // },
-  // {
-  //   "name": "Princess Leia",
-  //   "data": "leia",
-  //   "image": "leia.jpg"
-  // },
-  // {
-  //   "name": "Yoda",
-  //   "data": "yoda",
-  //   "image": "yoda.jpg"
-  // },
-  // {
-  //   "name": "Yoda",
-  //   "data": "yoda",
-  //   "image": "yoda.jpg"
-  // }
+  {
+    name: "Darth Sidious",
+    data: "sidious",
+    image: "sidious.jpg"
+  },
+  {
+    name: "Darth Sidious",
+    data: "sidious",
+    image: "sidious.jpg"
+  },
+  {
+    name: "Darth Vader",
+    data: "vader",
+    image: "vader.jpg"
+  },
+  {
+    name: "Darth Vader",
+    data: "vader",
+    image: "vader.jpg"
+  },
+  {
+    name: "Luke SkyWalker",
+    data: "luke",
+    image: "luke.jpg"
+  },
+  {
+    name: "Luke SkyWalker",
+    data: "luke",
+    image: "luke.jpg"
+  },
+  {
+    name: "Qui Gon Jinn",
+    data: "qui-gon",
+    image: "qui-gon.jpg"
+  },
+  {
+    name: "Qui Gon Jinn",
+    data: "qui-gon",
+    image: "qui-gon.jpg"
+  },
+  {
+    name: "Obi Wan Kenobi",
+    data: "obi-wan",
+    image: "obi-wan.jpg"
+  },
+  {
+    name: "Obi Wan Kenobi",
+    data: "obi-wan",
+    image: "obi-wan.jpg"
+  },
+  {
+    name: "Mace Windu",
+    data: "mace-windu",
+    image: "mace-windu.jpg"
+  },
+  {
+    name: "Mace Windu",
+    data: "mace-windu",
+    image: "mace-windu.jpg"
+  },
+  {
+    name: "Boba Fett",
+    data: "boba-fett",
+    image: "boba-fett.jpg"
+  },
+  {
+    name: "Boba Fett",
+    data: "boba-fett",
+    image: "boba-fett.jpg"
+  },
+  {
+    name: "Han Solo",
+    data: "han-solo",
+    image: "han-solo.jpg"
+  },
+  {
+    name: "Han Solo",
+    data: "han-solo",
+    image: "han-solo.jpg"
+  },
+  {
+    name: "R2 D2",
+    data: "r2d2",
+    image: "r2d2.jpg"
+  },
+  {
+    name: "R2 D2",
+    data: "r2d2",
+    image: "r2d2.jpg"
+  },
+  {
+    name: "C3PO",
+    data: "c3po",
+    image: "c3po.jpg"
+  },
+  {
+    name: "C3PO",
+    data: "c3po",
+    image: "c3po.jpg"
+  },
+  {
+    name: "Anakin Skywalker",
+    data: "anakin",
+    image: "anakin.jpg"
+  },
+  {
+    name: "Anakin Skywalker",
+    data: "anakin",
+    image: "anakin.jpg"
+  },
+  {
+    name: "Chewbacca",
+    data: "chewbacca",
+    image: "chewbacca.webp"
+  },
+  {
+    name: "Chewbacca",
+    data: "chewbacca",
+    image: "chewbacca.webp"
+  },
+  {
+    name: "Princess Leia",
+    data: "leia",
+    image: "leia.jpg"
+  },
+  {
+    name: "Princess Leia",
+    data: "leia",
+    image: "leia.jpg"
+  },
+  {
+    name: "Yoda",
+    data: "yoda",
+    image: "yoda.jpg"
+  },
+  {
+    name: "Yoda",
+    data: "yoda",
+    image: "yoda.jpg"
+  }
 ]
 
+const scorecontainer = document.getElementById('score-container')
 const wrapper = document.getElementById("wrapper");
 const easyMode = document.getElementById("easy");
 const mediumMode = document.getElementById("medium");
 const hardMode = document.getElementById("hard");
+
 const testMode = document.getElementById("test"); // test button
 
 let clicks = 0;
@@ -187,6 +189,12 @@ function init(mode) {
   mediumMode.remove();
   hardMode.remove();
   testMode.remove(); // remove test button
+
+  scorecontainer.style.display = 'flex'
+
+
+
+
   let cardArray = cardData;
   let newArr = [...cardArray];
 
