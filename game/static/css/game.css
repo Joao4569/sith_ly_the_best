@@ -28,6 +28,24 @@
   height: 50px;
 }
 
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: #e4b434;
+  padding: 1rem;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+
+.score {
+  font-size: 1.4rem;
+  color: black;
+  text-transform: uppercase;
+
+}
 
 #wrapper {
   display: none;
