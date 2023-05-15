@@ -1,1 +1,1 @@
-web: gunicorn sith-ly-the-best.wsgi
+web: gunicorn sith_ly_the_best.wsgi
