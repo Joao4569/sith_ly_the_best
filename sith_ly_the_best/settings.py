@@ -24,7 +24,7 @@ if os.path.isfile("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Johnny - Link file to the templates directory in Heroku
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+# TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -90,13 +90,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # Johnny - Testing
         # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-
-        # JOHNNY TESTING
-        #'DIRS': [
-        #      os.path.join(BASE_DIR, 'templates'),
-        #      os.path.join(BASE_DIR, 'templates', 'allauth'),
-        #   ],
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [
+               os.path.join(BASE_DIR, 'templates'),
+               os.path.join(BASE_DIR, 'templates', 'allauth'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,8 +101,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # Media context processor
-                'django.template.context_processors.media',
             ],
         },
     },
@@ -187,7 +182,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Johnny - Setup media storage
-MEDIA_URL = '/static/assets/images/'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
