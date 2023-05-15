@@ -24,7 +24,7 @@ button {
 
 body {
     /* background-image: linear-gradient(315deg, #537895 0%, #09203f 74%); */
-    background: url(/static/assets/stars.jpg) no-repeat center fixed;
+    /* background: url(/static/assets/stars.jpg) no-repeat center fixed; */
     background-size: cover;
     min-height: 100vh;
     display: flex;
@@ -33,6 +33,20 @@ body {
     padding: 1rem;
     align-items: center;
     gap: 1rem;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 h1 {
