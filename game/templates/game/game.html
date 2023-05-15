@@ -20,22 +20,27 @@
   <button id="test">Test Mode</button>
 </div>
 
+<div id="score-container" class="text-white">
+  <div class="inner-container">
+    <img class="points-image" src="/static/assets/images/clock-svgrepo-com.svg" />
+    <span id="totalTime">0</span>
+  </div>
+  <div class="inner-container">
+    <img class="points-image" src="/static/assets/images/hand-point-svgrepo-com.svg" />
+    <span id="totalClicks">0</span>
+  </div>
+</div>
+
 <div id="wrapper" class="wrapper"></div>
 
-<div class="text-white">
-  <span>Total Clicks: </span>
-  <span id="totalClicks">0</span>
-</div>
-<div class="text-white">
-  <span>Total Time: </span>
-  <span id="totalTime">0</span>
-</div>
+
 
 <form id="endGameForm" method="post" action="{% url 'save_score' %}">
   {% csrf_token %}
   <input type="hidden" id="timeSpent" name="timeSpent">
   <input type="hidden" id="moves" name="moves">
   <input type="hidden" id="gameMode" name="gameMode">
+  <input type="hidden" id="score" name="score">
   <button type="submit" style="display:none">Submit</button>
 </form>
 

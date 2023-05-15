@@ -1,11 +1,40 @@
-.text-white {
-    color: white;
+#score-container {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: black;
+  border: 5px solid #e4b434;
+  display: none;
+
 }
 
+.inner-container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  gap: .5rem;
+}
+
+.points-image {
+  font-size: 2rem;
+  fill: white;
+  color: white;
+  height: 50px;
+}
+
+
 #wrapper {
-    display: none;  /* Initially hide the wrapper */
-  }
-  
-  #wrapper.visible {
-    display: grid;  /* Show the wrapper when the 'visible' class is added */
-  }
+  display: none;
+  /* Initially hide the wrapper */
+}
+
+#wrapper.visible {
+  display: grid;
+  /* Show the wrapper when the 'visible' class is added */
+}
