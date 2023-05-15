@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # Removed insecure secret key and replaced it with a secure one - Johnny
 # Insecure key = 'django-insecure-4+_%p_&we#govk2xdh$yi12m4==m3etccxyn&zhay+$*7%tlox'
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -65,7 +65,7 @@ INSTALLED_APPS = [
     'game',
 
     # Johnny testing
-    #'sith_ly_the_best',
+    'sith_ly_the_best',
 ]
 
 SITE_ID = 1
