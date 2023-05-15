@@ -212,6 +212,18 @@ li {
 }
 
 
+/* Media Queries */
+@media screen and (max-width: 434px) {
+    .name-container {
+        padding: 0.3rem;
+    }
+
+    .name {
+        padding: 0.25rem;
+        font-size: 13px;
+    }
+
+
 
 /* LOGIN IN STYLING */
 
@@ -247,4 +259,5 @@ li {
 .signup input {
     padding: .5rem;
     border-radius: 10px
+
 }
