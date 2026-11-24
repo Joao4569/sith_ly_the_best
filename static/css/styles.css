@@ -23,8 +23,6 @@ button {
 }
 
 body {
-    /* background-image: linear-gradient(315deg, #537895 0%, #09203f 74%); */
-    /* background: url(/static/assets/stars.jpg) no-repeat center fixed; */
     background-size: cover;
     min-height: 100vh;
     display: flex;
