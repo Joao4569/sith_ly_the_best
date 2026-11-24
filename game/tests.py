@@ -30,6 +30,20 @@ class ScoreModelTests(TestCase):
         self.assertGreater(hard_score, easy_score)
 
 
+class StaticDeliveryTests(TestCase):
+    def test_homepage_renders_without_a_collected_static_manifest(self):
+        response = self.client.get('/', HTTP_HOST='localhost')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '/static/css/styles.css')
+
+    def test_whitenoise_serves_source_static_files_as_a_fallback(self):
+        response = self.client.get('/static/css/styles.css', HTTP_HOST='localhost')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'text/css; charset="utf-8"')
+
+
 @override_settings(STORAGES=TEST_STORAGES)
 class GameViewTests(TestCase):
     @classmethod
