@@ -21,6 +21,19 @@
   gap: .5rem;
 }
 
+.unit {
+  font-size: 1rem;
+}
+
+.game-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.game-status {
+  min-height: 1.5rem;
+}
+
 .points-image {
   font-size: 2rem;
   fill: white;
@@ -41,19 +54,92 @@
 
 
 .score {
-  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: 2rem minmax(8rem, 1fr) repeat(3, auto);
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
   color: black;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.rank {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.player,
+.mode {
   text-transform: uppercase;
+}
+
+.player {
+  font-weight: bold;
 
 }
 
-#wrapper {
+#wrapper.wrapper {
   display: none;
-  /* Initially hide the wrapper */
 }
 
-#wrapper.visible {
-  display: flex;
-  flex-wrap: wrap;
-  /* Show the wrapper when the 'visible' class is added */
+#wrapper.wrapper.visible {
+  display: grid;
+}
+
+#wrapper.mode-easy {
+  grid-template-columns: repeat(4, minmax(80px, 1fr));
+}
+
+#wrapper.mode-medium {
+  grid-template-columns: repeat(5, minmax(80px, 1fr));
+}
+
+#wrapper.mode-hard {
+  grid-template-columns: repeat(6, minmax(80px, 1fr));
+}
+
+.flip-card {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.flip-card:focus-visible {
+  outline: 4px solid white;
+  outline-offset: 3px;
+}
+
+.flip-card-inner {
+  display: block;
+}
+
+.is-flipped,
+.fixed {
+  transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 700px) {
+  #wrapper.mode-easy,
+  #wrapper.mode-medium {
+    grid-template-columns: repeat(4, minmax(55px, 1fr));
+  }
+
+  #wrapper.mode-hard {
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+  }
+
+  .score {
+    grid-template-columns: 2rem 1fr auto;
+  }
+
+  .score .mode,
+  .score span:last-child {
+    grid-column: 2 / -1;
+  }
 }

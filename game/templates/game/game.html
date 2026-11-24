@@ -5,32 +5,35 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}">
 {% endblock %}
 
-{% block title %}Sample Card{% endblock %}
+{% block title %}Memory Wars{% endblock %}
 {% block content %}
 
+<nav class="game-nav" aria-label="Game navigation">
+  <a href="{% url 'homepage' %}" class="nav-btn">Home</a>
+  <a href="{% url 'leaderboard' %}" class="nav-btn">Leaderboard</a>
+</nav>
 
-<a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
-<a href="{% url 'leaderboard' %}" class="nav-btn">Leaderboard</a>
 
-
-<div class="btn-container">
-  <button id="easy" class="btn">Easy</button>
-  <button id="medium" class="btn">Medium</button>
-  <button id="hard" class="btn">Hard</button>
+<div id="mode-selector" class="btn-container" role="group" aria-label="Choose difficulty">
+  <button type="button" data-mode="easy" class="btn">Easy</button>
+  <button type="button" data-mode="medium" class="btn">Medium</button>
+  <button type="button" data-mode="hard" class="btn">Hard</button>
 </div>
 
-<div id="score-container" class="text-white">
+<p id="game-status" class="game-status" aria-live="polite">Choose a difficulty to begin.</p>
+
+<div id="score-container" class="text-white" aria-label="Current game statistics">
   <div class="inner-container">
-    <img class="points-image" src="/static/assets/images/clock-svgrepo-com.svg" />
-    <span id="totalTime">0</span>
+    <img class="points-image" src="{% static 'images/clock-svgrepo-com.svg' %}" alt="">
+    <span id="totalTime">0.00</span><span class="unit">s</span>
   </div>
   <div class="inner-container">
-    <img class="points-image" src="/static/assets/images/hand-point-svgrepo-com.svg" />
-    <span id="totalClicks">0</span>
+    <img class="points-image" src="{% static 'images/hand-point-svgrepo-com.svg' %}" alt="">
+    <span id="totalMoves">0</span><span class="unit">moves</span>
   </div>
 </div>
 
-<div id="wrapper" class="wrapper"></div>
+<div id="wrapper" class="wrapper" data-card-back="{% static 'images/cardfront.jpg' %}"></div>
 
 
 
@@ -39,12 +42,11 @@
   <input type="hidden" id="timeSpent" name="timeSpent">
   <input type="hidden" id="moves" name="moves">
   <input type="hidden" id="gameMode" name="gameMode">
-  <input type="hidden" id="score" name="score">
-  <button type="submit" style="display:none">Submit</button>
 </form>
+
+{{ card_data|json_script:"card-data" }}
 
 {% endblock %}
 {% block postloadjs %}
-<script src="{% static 'data/cardData.json' %}"></script>
 <script src="{% static 'js/game.js' %}" type="module"></script>
 {% endblock %}

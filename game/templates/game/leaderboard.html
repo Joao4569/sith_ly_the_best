@@ -6,17 +6,24 @@
 {% endblock %}
 
 
-{% block title %}Sample Card{% endblock %}
+{% block title %}Leaderboard{% endblock %}
 {% block content %}
-<a href="{% url 'homepage' %}" class="nav-btn">HomePage</a>
+<a href="{% url 'homepage' %}" class="nav-btn">Home</a>
 <a href="{% url 'game' %}" class="nav-btn">Play</a>
 
 
-<div class="leaderboard">
+<section class="leaderboard" aria-labelledby="leaderboard-title">
+    <h1 id="leaderboard-title">Leaderboard</h1>
     {% for score in top_scores %}
-    <p class="score">{{ score.user.username }}: {{ score.total_score }}</p>
+    <div class="score">
+        <span class="rank">{{ forloop.counter }}</span>
+        <span class="player">{{ score.user.username }}</span>
+        <span class="mode">{{ score.get_game_mode_display }}</span>
+        <strong>{{ score.points }} pts</strong>
+        <span>{{ score.duration_seconds|floatformat:2 }}s · {{ score.moves }} moves</span>
+    </div>
     {% empty %}
     <p>No scores yet!</p>
     {% endfor %}
-</div>
+</section>
 {% endblock %}
